@@ -1,5 +1,7 @@
 import http from 'k6/http'
 import { Counter } from 'k6/metrics';
+import { sleep, check } from 'k6';
+import { randomIntBetween } from 'https://jslib.k6.io/k6-utils/1.2.0/index.js';
 
 
 const BASE_URL = 'https://staging.a-d.com.au/new-apartments-developments/nsw/castle-hill-2154/grand-reve';
@@ -23,7 +25,7 @@ export const options = {
 
     stages: [
         {
-            duration: '30s',  //ramp up time
+            duration: '30s', //ramp up time
             target: 5
         },
         {
@@ -34,12 +36,35 @@ export const options = {
             duration: '30s', // ramp-down time
             target: 0
         }
-    ]
+    ],
+
+    //for running on cloud
+    /*ext: {
+        loadimpact: {
+            projectID: 3687471
+        }
+    }*/
 
 }
 
 
 export default function(){
     const respData = http.get(BASE_URL);
+
+    if (respData.error) {
+        httpErrors.add(1, { URL: 'grand-reve' });
+    }
+
+    check(respData,
+        {
+            'Status grand reve page is 200': (r) => r.status === 200
+        },
+        {
+            URL: 'grand-reve'
+        });
+
+    sleep(randomIntBetween(0, 5));
 }
+
+
 
