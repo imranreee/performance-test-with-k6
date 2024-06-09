@@ -1,6 +1,7 @@
 # Load test with Grafana k6
 - Tools: Grafana k6 (https://k6.io/)
 - PC Preparation: https://k6.io/docs/get-started/installation/
+- To run the script `k6 run script.js --summary-export=results.json`
 
 # Test Results as following
 * 100 Virtual Users for 2 Mins
