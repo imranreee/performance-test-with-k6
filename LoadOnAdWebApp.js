@@ -26,11 +26,11 @@ export const options = {
     stages: [
         {
             duration: '30s', //ramp up time
-            target: 5
+            target: 100
         },
         {
             duration: '1m',
-            target: 5 //baseline value or typical load
+            target: 100 //baseline value or typical load
         },
         {
             duration: '30s', // ramp-down time
@@ -39,11 +39,11 @@ export const options = {
     ],
 
     //for running on cloud
-    /*ext: {
+    ext: {
         loadimpact: {
             projectID: 3687471
         }
-    }*/
+    }
 
 }
 
