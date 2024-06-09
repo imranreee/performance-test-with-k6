@@ -1,7 +1,8 @@
 # Load test with Grafana k6
 - Tools: Grafana k6 (https://k6.io/)
 - PC Preparation: https://k6.io/docs/get-started/installation/
-- To run the script `k6 run script.js --summary-export=results.json`
+- To run the script in local: `k6 run script.js --summary-export=results.json`
+- To run the script on clud: `k6 cloud script.js`
 
 # Test Results as following
 * 100 Virtual Users for 2 Mins
@@ -94,3 +95,9 @@ Here's a detailed explanation of each line of the k6 load test result you provid
     - **p(95)**: 95% of the wait times were within 2.87 seconds.
 
 20. **`http_reqs......................: 679     5.500629/s`**: This shows the total number of HTTP requests made during the test, which was 679, with an average rate
+
+# Test Results for cloud run
+
+![image](https://github.com/imranreee/Load-Test-With-k6/assets/19637476/7d3778a5-2aff-4780-80b7-0499d3f06223)
+
+
