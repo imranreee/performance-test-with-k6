@@ -3,13 +3,11 @@ import { Counter } from 'k6/metrics';
 import { sleep, check } from 'k6';
 import { randomIntBetween } from 'https://jslib.k6.io/k6-utils/1.2.0/index.js';
 
-
 const BASE_URL = 'https://staging.a-d.com.au/new-apartments-developments/nsw/castle-hill-2154/grand-reve';
 let httpErrors = new Counter('http_errors');
 
 // number of virtual users (VUs) and time is configurable as per test needs  
 export const options = {
-
     thresholds: {
         http_req_duration: ['p(95) < 100'],
         http_req_failed: ['rate < 0.01'], // http errors should be less than 1%
@@ -21,7 +19,6 @@ export const options = {
         checks: ['rate>=0.99'],
         'checks{URL:grand-reve}': ['rate>=0.99']
     },
-
 
     stages: [
         {
@@ -44,9 +41,7 @@ export const options = {
             projectID: 3687471
         }
     }
-
 }
-
 
 export default function(){
     const respData = http.get(BASE_URL);
@@ -65,6 +60,3 @@ export default function(){
 
     sleep(randomIntBetween(0, 5));
 }
-
-
-
