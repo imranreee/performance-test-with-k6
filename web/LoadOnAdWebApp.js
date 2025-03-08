@@ -3,7 +3,7 @@ import { Counter } from 'k6/metrics';
 import { sleep, check } from 'k6';
 import { randomIntBetween } from 'https://jslib.k6.io/k6-utils/1.2.0/index.js';
 
-const BASE_URL = 'https://staging.a-d.com.au/new-apartments-developments/nsw/castle-hill-2154/grand-reve';
+const BASE_URL = 'https://example.com';
 let httpErrors = new Counter('http_errors');
 
 // number of virtual users (VUs) and time is configurable as per test needs  
