@@ -1,8 +1,48 @@
-# Load test with Grafana k6
-- Tools: Grafana k6 (https://k6.io/)
+<img src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_9fcecb565c7303e367747d46e315effe/k6.png" alt="K6 Logo" width="200" height="100" />
+
+
+# Performance Testing with Grafana k6
+## Tools: Grafana k6 (https://k6.io/)
+## Features
+- ✅ Load, Stress, & Soak Testing  
+- ✅ Authentication Handling  
+- ✅ Distributed Load Simulation  
+- ✅ Custom Virtual Users  
+- ✅ Custom Duration  
+- ✅ Custom Metrics & Reporting  
+- ✅ Randomized Sleep Time  
+- ✅ Failure Rate Monitoring 
+
+
+## Installation & Setup
+
+#### **For macOS (Homebrew)**
+`brew install k6`
+
+### For Linux
+`sudo apt update && sudo apt install k6`
+
+### For Windows (Chocolatey)
+`choco install k6`
+
+More details: https://grafana.com/docs/k6/latest/set-up/install-k6/
+
+# Running Tests
+### Basic Load Test: 
+`k6 run load-test.js`
+### Custom Virtual Users (VU) & Duration: 
+`k6 run --vus 20 --duration 30s load-test.js`
+### Distributed Load Testing (Cloud Execution: 
+`k6 cloud load-test.js`
+
+# Generate HTML Reports
+`k6 run load-test.js --out json=results.json`
+
+`npm install -g k6-reporter`
+
+`k6-reporter results.json > report.html`
 - PC Preparation: https://k6.io/docs/get-started/installation/
-- To run the script in local: `k6 run script.js --summary-export=results.json`
-- To run the script on clud: `k6 cloud script.js`
+
 
 # Test Results as following
 * 100 Virtual Users for 2 Mins
